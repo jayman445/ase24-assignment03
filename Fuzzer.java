@@ -88,10 +88,11 @@ public class Fuzzer {
                 input -> { 
                     try {
                         Process process = builder.start();
-                        OutputStream stdin = process.getOutputStream();
-                        stdin.write(input.getBytes());
-                        stdin.flush();
-                        stdin.close();
+
+                        try (OutputStream stdin = process.getOutputStream()) {
+                            stdin.write(input.getBytes());
+                            stdin.flush();
+                        }
 
                         String output = readStreamIntoString(process.getInputStream());
 
