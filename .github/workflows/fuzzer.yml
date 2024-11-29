@@ -17,6 +17,9 @@ jobs:
       - name: Make executable
         run: chmod +x html_parser_linux_x86_64
 
+      - name: Test html_parser manually
+        run: echo "<html></html>" | ./html_parser_linux_x86_64
+
       # Set up Java
       - name: Set up Java
         uses: actions/setup-java@v4
