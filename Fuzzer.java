@@ -93,9 +93,9 @@ public class Fuzzer {
                         stdin.flush();
                         stdin.close();
 
-                        int exitCode = process.waitFor();
-
                         String output = readStreamIntoString(process.getInputStream());
+
+                        int exitCode = process.waitFor();
                         System.out.println("Input: " + input);
                         System.out.println("Output: " + output);
 
