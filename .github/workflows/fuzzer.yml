@@ -27,4 +27,4 @@ jobs:
 
       # Run the Fuzzer
       - name: Run Fuzzer
-        run: java Fuzzer html_parser
+        run: java Fuzzer html_parser_linux_x86_64
