@@ -57,7 +57,7 @@ public class Fuzzer {
         // List of Mutators 
         List<Function<String, String>> dynamicMutators = new ArrayList<>();
         // adding dynamic mutators multiple times to see some variety in mutated inputs
-        for (int i = 0; i < 0; i++) {
+        for (int i = 0; i < 2; i++) {
             dynamicMutators.add(input -> insertRandomCharacter(seedInput));
             dynamicMutators.add(input -> removeRandomSubstring(seedInput));
             dynamicMutators.add(input -> replaceRandomTag(seedInput));
@@ -95,7 +95,6 @@ public class Fuzzer {
                         }
 
                         int exitCode = process.waitFor();
-                        System.err.println("Process exited with code: " + exitCode);
 
                         String output = readStreamIntoString(process.getInputStream());
                         System.out.println("Input: " + input);
